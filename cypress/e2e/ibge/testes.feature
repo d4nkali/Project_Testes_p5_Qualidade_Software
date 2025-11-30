@@ -59,3 +59,12 @@ Feature: Busca e Navegação no site do IBGE
   Scenario: Acessar Painel de Indicadores
     When eu abro o painel de indicadores
     Then devo ver o indicador Cana-de-açúcar
+
+  Scenario: Acessar downloads estatísticos e navegar até tabela de internet e celular de 2015
+    When eu navego até Downloads Estatísticos
+    And eu abro o conjunto de dados de Acesso à Internet e Posse de Celular de 2015
+    Then devo ver o arquivo Equipamento Utilizado para Acessar a Internet
+
+  Scenario: Visualizar evolução anual do PIB per capita
+    When eu acesso o indicador PIB per capita
+    Then devo ver a evolução anual do PIB per capita

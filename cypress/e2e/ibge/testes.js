@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-// BACKGROUND
+// Background
 
 Given("que estou na página inicial do IBGE", () => {
   cy.visit("https://www.ibge.gov.br/");
@@ -153,3 +153,34 @@ Then("devo ver o indicador Cana-de-açúcar", () => {
   cy.get("#indicador-cana-de-acucar span.nonsprite")
     .should("contain", "Cana-de-açúcar");
 });
+
+// Downloads Estatísticos 
+When("eu navego até Downloads Estatísticos", () => {
+  cy.get('div.envolve_logo.mobile-only #nav-toggle').click();
+  cy.get('#menu_principal li[idmenu="1"] > span:nth-child(1)').click();
+  cy.get('#menu_principal a[href="/estatisticas/downloads-estatisticas.html"]').click();
+});
+
+When("eu abro o conjunto de dados de Acesso à Internet e Posse de Celular de 2015", () => {
+  cy.get('#Acesso_a_internet_e_posse_celular_anchor i.jstree-icon').click();
+  cy.get('#Acesso_a_internet_e_posse_celular\\/2015_anchor').click();
+  cy.get('#Acesso_a_internet_e_posse_celular\\/2015\\/Tabelas_de_Resultados_anchor').click();
+  cy.get('#Acesso_a_internet_e_posse_celular\\/2015\\/Tabelas_de_Resultados\\/xlsx_anchor').click();
+  cy.get('#Acesso_a_internet_e_posse_celular\\/2015\\/Tabelas_de_Resultados\\/xlsx\\/01_Pessoas_de_10_Anos_ou_Mais_de_Idade_anchor').click();
+});
+
+Then("devo ver o arquivo Equipamento Utilizado para Acessar a Internet", () => {
+  cy.get('#j1_779_anchor')
+    .should("have.text", "02_Equipamento_Utlizado_para_Acessar_a_Internet.xlsx");
+});
+
+// PIB per capita
+When("eu acesso o indicador PIB per capita", () => {
+  cy.get("#indicadores-section a.btn-outros-indicadores").click();
+  cy.get("#indicador-pib-per-capita th").click();
+});
+
+Then("devo ver a evolução anual do PIB per capita", () => {
+  cy.get('#id-74 tspan').should("have.text", "Evolução anual - Brasil");
+});
+
