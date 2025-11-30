@@ -1,2 +1,3 @@
-# template_uniesp_projects
-Repositório de exemplo para criar outros repositórios para projetos da faculdade.
+# Project Testes Cypress + Cucumber - Qualidade Software p5
+
+Projeto final de testes unitários da cadeira de Qualidade de Software p5.

@@ -1,3 +1,5 @@
-# Define que o Git sempre converterá delimitadores de linha em CRLF
-*.txt eol=crlf
-*.md eol=crlf
+# Define que o Git sempre converterá delimitadores de linha em LF
+*.txt eol=lf
+*.md eol=lf
+*.js eol=lf
+*.feature eol=lf
