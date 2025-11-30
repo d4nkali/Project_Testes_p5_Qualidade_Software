@@ -1,16 +1,15 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-// =========================
 // BACKGROUND
-// =========================
+
 Given("que estou na página inicial do IBGE", () => {
   cy.visit("https://www.ibge.gov.br/");
   cy.get("body").should("be.visible");
 });
 
-// =========================
+
 // Funções auxiliares
-// =========================
+
 const abrirLupa = () => cy.get("#lupa").click();
 
 const campoBusca = () =>
@@ -25,9 +24,7 @@ const realizarBusca = (texto) => {
   botaoBusca().click();
 };
 
-// =====================================================
-// BUSCAS (já existentes)
-// =====================================================
+// Buscas
 
 When('eu digito "população" no campo de busca', () => {
   abrirLupa();
@@ -75,13 +72,8 @@ Then("devo visualizar arquivos e mapas temáticos disponíveis", () => {
   cy.contains(/mapa/i).should("exist");
 });
 
+// Redes Geodésicas 
 
-
-// =====================================================
-// NOVOS STEPS (menus, vídeos, indicadores…)
-// =====================================================
-
-// ---------- Redes Geodésicas ----------
 When("eu abro o menu mobile", () => {
   cy.get('div.envolve_logo.mobile-only #nav-toggle').click();
 });
@@ -96,7 +88,8 @@ Then("devo ver a página de Redes Geodésicas", () => {
   cy.get("div.conteudo__interna__titulo h2").should("contain", "Redes Geodésicas");
 });
 
-// ---------- População ----------
+// População 
+
 When("eu navego até a página de População", () => {
   cy.get('#menu_principal li[idmenu="1"] > span:nth-child(1)').click();
   cy.get('#menu_principal li[idmenu="2"] span.nav-header').click();
@@ -107,7 +100,8 @@ Then("devo ver a página População", () => {
   cy.get("div.conteudo__interna__titulo h2").should("contain", "População");
 });
 
-// ---------- Comunicados ----------
+// Comunicados 
+
 When("eu clico em ver todos os comunicados", () => {
   cy.get("#section_comunicados a.link-vertodos").click();
 });
@@ -116,7 +110,8 @@ Then("devo ver a página Comunicados", () => {
   cy.get("div.conteudo__interna__titulo h2").should("have.text", "Comunicados");
 });
 
-// ---------- Cidades e Estados ----------
+// Cidades e Estados 
+
 When("eu acesso Cidades e Estados", () => {
   cy.get("#cidades-estados-link-bottom").click();
 });
@@ -129,7 +124,8 @@ Then("devo ver os dados da Paraíba", () => {
   cy.get("#responseMunicipios h1").should("have.text", "Paraíba");
 });
 
-// ---------- Highlights ----------
+// Highlights/Teste na pagina em ingles
+
 When("eu clico no ícone de destaque", () => {
   cy.get('div.envolve_logo.mobile-only li:nth-child(2) a img').click();
 });
@@ -138,7 +134,7 @@ Then("devo ver a seção Highlights", () => {
   cy.get("#section_comunicados h2").should("have.text", "Highlights");
 });
 
-// ---------- Vídeos ----------
+// Vídeos 
 When("eu abro a lista completa de vídeos", () => {
   cy.get("#section_videos a.botao-home").click();
 });
@@ -148,7 +144,7 @@ Then("devo ver o vídeo Respondendo ao IBGE", () => {
     .should("have.text", "Respondendo ao IBGE");
 });
 
-// ---------- Painel de Indicadores ----------
+// Painel de Indicadores 
 When("eu abro o painel de indicadores", () => {
   cy.get("#indicadores-section a.btn-outros-indicadores").click();
 });

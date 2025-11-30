@@ -6,7 +6,6 @@ Feature: Busca e Navegação no site do IBGE
   Background:
     Given que estou na página inicial do IBGE
 
-  # Cenários de busca (já existentes)
   Scenario: Buscar por "população" na página inicial do IBGE
     When eu digito "população" no campo de busca
     And eu clico no botão de pesquisa
@@ -29,11 +28,6 @@ Feature: Busca e Navegação no site do IBGE
   Scenario: Buscar por mapas no site do IBGE
     When eu busco por "mapas" no campo de pesquisa
     Then devo visualizar arquivos e mapas temáticos disponíveis
-
-
-  # ======================
-  # NOVOS CENÁRIOS
-  # ======================
 
   Scenario: Acessar Redes Geodésicas no menu do IBGE
     When eu abro o menu mobile
