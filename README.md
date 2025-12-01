@@ -92,7 +92,7 @@ npx cypress open
 
 ## Video
 
-
+https://youtu.be/7jDFZiiftwM
 
 ---
 
